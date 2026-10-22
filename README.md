@@ -50,11 +50,11 @@ ShadowVault/
 
 **1. Clone the repository**
 
-```bash
-https://github.com/Shakya0051/ShadowVault
+```App
+https://shadowvault-t8zy.vercel.app/
 ```
 
-Replace `YOUR_GITHUB_REPOSITORY_URL` with your actual repository URL.
+Replace `https://github.com/Shakya0051/ShadowVault` with your actual repository URL.
 
 **2. Open the project**
 
