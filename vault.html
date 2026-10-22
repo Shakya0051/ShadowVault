@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d1c">
+  <title>ShadowVault | Private Space</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- PASSWORD SCREEN -->
+  <section class="lock-screen" id="lockScreen">
+    <div class="lock-card">
+      <div class="brand-mark">◈</div>
+      <h1>Shadow<span>Vault</span></h1>
+      <p class="subtitle">Your secrets. Your space.</p>
+      <div class="lock-badge">🔒 PRIVATE VAULT</div>
+
+      <form id="unlockForm">
+        <label for="vaultPassword">Vault password</label>
+        <input id="vaultPassword" type="password"
+          placeholder="Enter your password"
+          autocomplete="current-password" required autofocus>
+        <p id="lockError" class="error" role="alert"></p>
+        <button class="primary-btn full-width" type="submit">
+          Unlock my vault →
+        </button>
+      </form>
+      <p class="lock-footer">Your private space awaits.</p>
+    </div>
+  </section>
+
+  <!-- MAIN APPLICATION -->
+  <div class="app" id="app">
+
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="ShadowVault home">
+        <span class="brand-mark small">◈</span>
+        <span>Shadow<span class="accent">Vault</span></span>
+      </a>
+      <p class="tagline">Your secrets. Your space.</p>
+
+      <nav class="navigation" aria-label="Main navigation">
+        <button class="nav-item active" data-view="Dashboard">◫ <span>Dashboard</span></button>
+        <button class="nav-item" data-view="Files">▤ <span>Files</span></button>
+        <button class="nav-item" data-view="Folders">▰ <span>Folders</span></button>
+        <button class="nav-item" data-view="Recent">◷ <span>Recent</span></button>
+        <button class="nav-item" data-view="Trash">♲ <span>Trash</span></button>
+        <button class="nav-item" data-view="Settings">⚙ <span>Settings</span></button>
+      </nav>
+
+      <div class="profile">
+        <div class="avatar">S</div>
+        <div>
+          <strong>Vault Owner</strong>
+          <small>Personal workspace</small>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn mobile-menu" id="menuBtn"
+          aria-label="Open navigation">☰</button>
+        <label class="search">
+          <span>⌕</span>
+          <input id="searchInput" type="search"
+            placeholder="Search your secret files...">
+          <kbd>/</kbd>
+        </label>
+        <button class="icon-btn" id="themeBtn"
+          aria-label="Toggle light or dark theme">☼</button>
+        <button class="icon-btn" id="lockBtn"
+          aria-label="Lock vault now">🔒</button>
+      </header>
+
+      <section class="hero">
+        <div class="hero-content">
+          <span class="eyebrow">YOUR PRIVATE UNIVERSE</span>
+          <h1 id="welcomeTitle">Welcome to your vault.</h1>
+          <p>Everything important, organized in one private space.</p>
+          <button class="primary-btn" id="heroUpload">＋ Add new file</button>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="big-lock">♙</div>
+          <span class="spark spark-one">✦</span>
+          <span class="spark spark-two">✧</span>
+        </div>
+      </section>
+
+      <section class="stats">
+        <article class="stat-card">
+          <div class="stat-icon blue">▤</div>
+          <div><span>Total files</span><h2 id="fileCount">0</h2></div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon green">▰</div>
+          <div><span>Folders</span><h2 id="folderCount">0</h2></div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon purple">♙</div>
+          <div><span>Workspace</span><h2 class="secure-text">LOCAL</h2></div>
+        </article>
+      </section>
+
+      <section class="quick-actions">
+        <button class="action-btn" id="uploadBtn"><span>↑</span> Upload files</button>
+        <button class="action-btn" id="folderBtn"><span>▰</span> New folder</button>
+        <button class="action-btn" id="noteBtn"><span>✎</span> Secret note</button>
+      </section>
+
+      <input id="fileInput" type="file" multiple hidden>
+
+      <section class="vault-section">
+        <div class="section-heading">
+          <div>
+            <h2 id="viewTitle">Your vault</h2>
+            <p id="viewDescription">Your files and folders, all in one place.</p>
+          </div>
+          <button class="view-toggle" id="viewToggle"
+            aria-label="Switch grid or list layout">☷ List</button>
+        </div>
+
+        <div id="itemGrid" class="item-grid"></div>
+
+        <div id="emptyState" class="empty-state" hidden>
+          <div class="empty-symbol">◈</div>
+          <h3>Your space is waiting</h3>
+          <p>Add a file, create a folder, or write a private note.</p>
+          <button class="primary-btn" id="emptyAddBtn">＋ Create folder</button>
+        </div>
+      </section>
+
+      <footer>
+        <span>◈ ShadowVault</span>
+        <span>Private space, organized your way.</span>
+      </footer>
+    </main>
+  </div>
+
+  <!-- SLIDING PANEL AND OVERLAY -->
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="drawer" id="drawer" aria-label="Item details">
+    <div class="drawer-top">
+      <button class="icon-btn" id="backBtn" aria-label="Back">←</button>
+      <button class="icon-btn" id="closeDrawer" aria-label="Close panel">×</button>
+    </div>
+    <div id="drawerContent"></div>
+  </aside>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
